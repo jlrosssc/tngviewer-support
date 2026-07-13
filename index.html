@@ -85,6 +85,13 @@
     font-size: 0.85rem;
   }
   a { color: var(--accent); }
+  code {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 0.9em;
+  }
 </style>
 </head>
 <body>
@@ -112,13 +119,38 @@
     <li>Screenshots help a lot if the issue is visual.</li>
   </ul>
 
-  <h2>Frequently asked questions</h2>
+  <h2>Getting connected</h2>
 
   <h3>What do I need to use TNG Viewer?</h3>
-  <p>TNG Viewer connects to a family tree website built with <a href="https://www.tngsitebuilding.com/" target="_blank" rel="noopener">The Next Generation of Genealogy Sitebuilding (TNG)</a>. You'll need the web address of a TNG site and, if the site requires it, a username and password provided by the site's administrator.</p>
+  <p>TNG Viewer connects to a family tree website built with <a href="https://www.tngsitebuilding.com/" target="_blank" rel="noopener">The Next Generation of Genealogy Sitebuilding (TNG)</a>. You'll need three things:</p>
+  <ul>
+    <li>The web address of a TNG site (for example, <code>https://example.com/genealogy</code>).</li>
+    <li>The <strong>tng_api.php</strong> script installed on that site (see below). If you're not the site's administrator, ask them to install it.</li>
+    <li>Optionally, a TNG username and password if you want to see protected records and living persons.</li>
+  </ul>
 
-  <h3>The app can't connect to my TNG site. What should I check?</h3>
-  <p>Verify the site address is entered exactly as it appears in your browser, confirm the site is reachable from your device's browser, and check that your login credentials are current. If the problem persists, email us with the site address (you can omit credentials) and we'll help troubleshoot.</p>
+  <h3>How do I install the API script on my TNG site?</h3>
+  <p>TNG Viewer talks to your site through a small script called <strong>tng_api.php</strong>. Upload it to your TNG root directory — the same folder that contains TNG's <code>config.php</code> — using FTP, SFTP, or your web host's file manager. No TNG configuration changes are needed. If you need a copy of the script, email us and we'll send it along with instructions.</p>
+
+  <h3>How do I check that the script is installed correctly?</h3>
+  <p>In any web browser, visit <code>https://yoursite.com/your-tng-path/tng_api.php?action=ping</code>. If you see a short response that includes <code>"success": true</code>, the script is installed and reachable. If you see a "not found" page instead, the script isn't in the right folder — it must sit next to <code>config.php</code>.</p>
+
+  <h3>What do I enter on the app's setup screen?</h3>
+  <p>Enter the base URL of your TNG installation — the address of the page where TNG is hosted, <em>without</em> any <code>.php</code> filename. For example, if you view your tree at <code>https://example.com/genealogy/index.php</code>, enter <code>https://example.com/genealogy</code>. You can leave off <code>https://</code>; the app adds it automatically. Then tap <strong>Connect</strong>.</p>
+
+  <h3>The app says "Cannot find host" or "Connection timed out."</h3>
+  <p>Check the address for typos, and confirm the site opens in Safari on the same device. If the site works in Safari but not in the app, make sure you entered the base URL (no <code>.php</code> at the end) and that <code>tng_api.php</code> responds to the ping test above.</p>
+
+  <h3>The app reports an SSL or HTTPS error.</h3>
+  <p>iOS expects sites to use HTTPS. If your TNG site doesn't have an SSL certificate, the connection may fail or you may need to enter the address with <code>http://</code> explicitly. The best fix is to add an SSL certificate to your site — most web hosts offer free certificates via Let's Encrypt. Email us if you're stuck and we'll help.</p>
+
+  <h3>Do I have to sign in?</h3>
+  <p>No — you can browse public records without signing in. Signing in with your TNG account (the same username and password you use on the website) lets you see protected records and data for living persons, subject to the access rights your site administrator has given your account. Your credentials are stored securely in the iOS Keychain on your device.</p>
+
+  <h3>How do I switch to a different TNG site?</h3>
+  <p>Open the <strong>Settings</strong> tab in the app and choose <strong>Change Site URL</strong>, then enter the new site's address. To start completely fresh, Settings also offers <strong>Reset App</strong>, which clears the saved site and sign-in.</p>
+
+  <h2>Frequently asked questions</h2>
 
   <h3>I can't see photos or certain people in the tree.</h3>
   <p>TNG sites control visibility per user. If records or media appear on the website but not in the app, contact your site administrator to confirm your account's access rights, or email us and we'll help figure out what's going on.</p>
