@@ -101,7 +101,7 @@
 
   <div class="card">
     <h2>Who this app is for</h2>
-    <p>TNG Viewer is intended for family members and guests who already have an <strong>approved login</strong> on our TNG genealogy site, <strong>rosssgenealogy.net</strong>. Signing in with your approved account unlocks the app's additional visual and mapping capabilities — family photos and documents, and interactive maps of the places in the family tree. If you don't have a login yet, email us to request one.</p>
+    <p>TNG Viewer is intended for people who already have an <strong>approved login</strong> on a genealogy site built with TNG. It works with <strong>any TNG site</strong>, as long as the free <strong>tng_api.php</strong> script has been installed on it (instructions below). Signing in with your approved account unlocks the app's additional visual and mapping capabilities — family photos and documents, and interactive maps of the places in the family tree. If you don't have a login yet, ask the administrator of your family's TNG site for one.</p>
   </div>
 
   <div class="card">
@@ -129,10 +129,18 @@
   <h3>What do I need to use TNG Viewer?</h3>
   <p>TNG Viewer connects to a family tree website built with <a href="https://www.tngsitebuilding.com/" target="_blank" rel="noopener">The Next Generation of Genealogy Sitebuilding (TNG)</a>. You'll need three things:</p>
   <ul>
-    <li>An <strong>approved TNG login</strong> — the same username and password you use on the website. For our family site, logins are issued by the administrator; email us to request one.</li>
-    <li>The web address of the TNG site. For our family tree, this is <code>rosssgenealogy.net</code>.</li>
-    <li>The <strong>tng_api.php</strong> script installed on that site. This is already in place on <code>rosssgenealogy.net</code>; the questions below about installing it only apply if you host your own TNG site.</li>
+    <li>An <strong>approved TNG login</strong> — the same username and password you use on the TNG website. Logins are issued by the site's administrator.</li>
+    <li>The web address of the TNG site (for example, <code>https://example.com/genealogy</code>).</li>
+    <li>The <strong>tng_api.php</strong> script installed on that site — see the instructions below. If you're not the site's administrator, ask them to install it.</li>
   </ul>
+
+  <h3>Quick start</h3>
+  <ol>
+    <li>Download <strong>tng_api.php</strong> from <a href="https://github.com/jlrosssc/tngviewer-support/blob/main/tng_api.php">our GitHub page</a> and upload it to the TNG site's root folder — the same folder that contains TNG's <code>config.php</code>.</li>
+    <li>Verify the install by visiting <code>https://yoursite.com/your-tng-path/tng_api.php?action=ping</code> in a browser and checking for <code>"success": true</code>.</li>
+    <li>In the app, enter the site's base URL on the setup screen and tap <strong>Connect</strong>.</li>
+    <li>Sign in with your approved TNG username and password to unlock photos, documents, and maps.</li>
+  </ol>
 
   <h3>How do I install the API script on my TNG site?</h3>
   <p>TNG Viewer talks to your site through a small script called <strong>tng_api.php</strong>. Download it from <a href="https://github.com/jlrosssc/tngviewer-support/blob/main/tng_api.php">our GitHub page</a> (use the download button there), then upload it to your TNG root directory — the same folder that contains TNG's <code>config.php</code> — using FTP, SFTP, or your web host's file manager. No TNG configuration changes are needed. If you get stuck, email us and we'll walk you through it.</p>
@@ -141,7 +149,7 @@
   <p>In any web browser, visit <code>https://yoursite.com/your-tng-path/tng_api.php?action=ping</code>. If you see a short response that includes <code>"success": true</code>, the script is installed and reachable. If you see a "not found" page instead, the script isn't in the right folder — it must sit next to <code>config.php</code>.</p>
 
   <h3>What do I enter on the app's setup screen?</h3>
-  <p>For our family site, simply enter <code>rosssgenealogy.net</code> and tap <strong>Connect</strong>. In general, the setup screen takes the base URL of a TNG installation — the address of the page where TNG is hosted, <em>without</em> any <code>.php</code> filename. For example, if you view a tree at <code>https://example.com/genealogy/index.php</code>, enter <code>https://example.com/genealogy</code>. You can leave off <code>https://</code>; the app adds it automatically.</p>
+  <p>Enter the base URL of the TNG installation — the address of the page where TNG is hosted, <em>without</em> any <code>.php</code> filename. For example, if you view a tree at <code>https://example.com/genealogy/index.php</code>, enter <code>https://example.com/genealogy</code>. You can leave off <code>https://</code>; the app adds it automatically. Then tap <strong>Connect</strong>.</p>
 
   <h3>The app says "Cannot find host" or "Connection timed out."</h3>
   <p>Check the address for typos, and confirm the site opens in Safari on the same device. If the site works in Safari but not in the app, make sure you entered the base URL (no <code>.php</code> at the end) and that <code>tng_api.php</code> responds to the ping test above.</p>
@@ -150,7 +158,7 @@
   <p>iOS expects sites to use HTTPS. If your TNG site doesn't have an SSL certificate, the connection may fail or you may need to enter the address with <code>http://</code> explicitly. The best fix is to add an SSL certificate to your site — most web hosts offer free certificates via Let's Encrypt. Email us if you're stuck and we'll help.</p>
 
   <h3>Do I have to sign in?</h3>
-  <p>Yes — the app is intended for people who already have an approved TNG login. Sign in with the same username and password you use on the website. Signing in unlocks protected records, data for living persons, and the app's additional visual and mapping capabilities, subject to the access rights your site administrator has given your account. Your credentials are stored securely in the iOS Keychain on your device. If you don't have a login, email us to request one.</p>
+  <p>Yes — the app is intended for people who already have an approved TNG login. Sign in with the same username and password you use on the website. Signing in unlocks protected records, data for living persons, and the app's additional visual and mapping capabilities, subject to the access rights your site administrator has given your account. Your credentials are stored securely in the iOS Keychain on your device. If you don't have a login, ask the administrator of the TNG site for one.</p>
 
   <h3>How do I switch to a different TNG site?</h3>
   <p>Open the <strong>Settings</strong> tab in the app and choose <strong>Change Site URL</strong>, then enter the new site's address. To start completely fresh, Settings also offers <strong>Reset App</strong>, which clears the saved site and sign-in.</p>
